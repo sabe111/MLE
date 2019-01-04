@@ -5,7 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class GeneticAlgorithm {
 	final static int POPULATION = 100;
 	final static int GENES = 20;
-	final static int FITNESS_TRESHOLD = 19;
+	final static int FITNESS_TRESHOLD = 20;
 	final static String OPTIMUM = generateGenes();
 	final static double CROSSOVER_RATE = 0.05;
 	final static double MUTATION_RATE = 0.01;
