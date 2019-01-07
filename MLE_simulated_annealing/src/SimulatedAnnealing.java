@@ -1,3 +1,4 @@
+import java.util.concurrent.ThreadLocalRandom;
 
 public class SimulatedAnnealing {
 	private static final double EPSILON = 0.01;
@@ -63,17 +64,16 @@ public class SimulatedAnnealing {
 	}
 	
 	private static int[] swapCities(int[] route) {
-		int random1 = (int) (Math.random() * route.length);
-		int random2 = (int) (Math.random() * route.length);
+		int random1 = ThreadLocalRandom.current().nextInt(0, route.length);
+		int random2 = ThreadLocalRandom.current().nextInt(0, route.length);
 
-		if (random1 != random2) {
-			int temp = route[random1];
-			route[random1] = route[random2];
-			route[random2] = temp;
-
+		while(random1 == random2) {
+			random2 = ThreadLocalRandom.current().nextInt(0, route.length);
 		}
+		int temp = route[random1];
+		route[random1] = route[random2];
+		route[random2] = temp;
 		return route;
-
 	}
 	
 	private static int getDistance(int[][] matrix, int[] route) {			
